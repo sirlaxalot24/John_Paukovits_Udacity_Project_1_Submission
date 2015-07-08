@@ -8,8 +8,8 @@ Created on Thu Jul 02 08:43:09 2015
 import numpy as np
 import pandas
 from sklearn.linear_model import SGDRegressor
-
-
+import matplotlib.pyplot as plt
+from scipy import stats
 
 def normalize_features(features):
 
@@ -71,10 +71,14 @@ predictions = intercept + np.dot(features_array, params)
 
 r_squared = Rsquar(values, predictions)
 
+plt.figure()
+(values -predictions).hist(bins=20)
+
+
 print "R^2 - ", r_squared
 print "Intercept - ", intercept
 print "Params - ", params[0:4]
-
+print plt
 
 
 
